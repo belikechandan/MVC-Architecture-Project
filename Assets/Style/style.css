@@ -1,0 +1,47 @@
+.header{
+	width:100%;
+	top:0;
+	left:0;
+	position:absolute;
+}
+
+.header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.header li {
+  float: right;
+}
+
+.header li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.header li a:hover {
+  background-color: #111;
+}
+
+.inner {	
+  margin: 48px auto;
+  width: 50%;
+  border: 3px solid green;
+  text-align:center;
+  }
+.inner table{
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	padding:10px;
+}
+
+.inner table td{
+	padding:10px;
+}
