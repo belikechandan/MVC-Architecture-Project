@@ -1,0 +1,8 @@
+###  Rewrite (convert) the url before processing
+RewriteEngine on
+
+### do not redirect iframe
+RewriteCond $1 !^(index\.php|Assets|images|css|uploads}favicon.png)
+
+### redirect to => ./index.php?route=1
+RewriteRule ^(.*)$ index.php?route=$1 [QSA]
