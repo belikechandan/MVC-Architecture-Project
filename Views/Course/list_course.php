@@ -8,20 +8,33 @@
 	<table>
 		<h2 center> Course List </h2>
 	<tr>
-	<td>Course No</td><td>Course Name</td><td>Duration</td><td><a href="<?=baseUrl("/Courses/createForm")?>"><button>Create Course</button></a></td>
-	<?php
-	foreach ($rows as $row){
-		$cNo = $row["Course_No"];  
-	?>
+	<td>Course No</td><td>Course Name</td><td>Duration</td>
+	<td>
+		<form action="<?=baseUrl("/Courses/createForm")?>" method="post">
+		<button>Create Course</button></a>
+		</form>
+	</td>
+	</tr>
+			<?php
+				foreach ($rows as $row){
+				$cNo = $row["Course_No"];  
+			?>
 	<tr>
 	    <td><?= $cNo; ?> </td>
 	 	<td><?= $row["Course_Name"]; ?> </td>
 		<td><?= $row["Duration"]; ?> </td>
 		<td>
-		 <a href="<?=baseUrl("/Courses/updateForm")?>?whereCNo=<?= $cNo ?> "> Update </a>
+		 <form action= "<?=baseUrl("/Courses/updateForm")?>" method="post">
+			<input type="hidden" name="whereCNo" value="<?= $cNo ?> "> 
+			<button>Update</button>
+		 </form>
 		</td>
 		<td>
-		 <a href="<?=baseUrl("/Courses/delete")?>?whereCNo=<?= $cNo ?> "> Delete </a>
+		<form action="<?= baseUrl("/Courses/delete")?>" method="post">
+				<input type="hidden" name="whereCNo" value="<?=$cNo ?>">
+				<button>Delete</button>
+			</form>
+		</form>
 		</td>
 	</tr>
 	<?php 

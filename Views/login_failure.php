@@ -9,32 +9,27 @@
 				padding:0;
 				height:100vh;
 			}
-			
 			.main{
 				padding:64px;
 				width:60%;
 				border:2px dashed green;
 				margin:auto;
 			}
-			
-			.container{
 				
-			}
-			
-		
 		</style>
 	</head>
 		
 	<body> 
 			<div class="main">
-			<form action="<?=baseURL("/",$qString)?>">
+			
+			<form action="<?=baseURL("/".$qString)?>">
 			<div>
 				<label>
 					<input type="text" name="username">
 					</label>
 					
 				<label>
-					<input type="text" name="password">
+					<input type="password" name="password">
 				</label>
 				
 				<button>Login</button>
@@ -44,4 +39,3 @@
 		</div>
 		
 	</body>
-</html>

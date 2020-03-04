@@ -1,10 +1,15 @@
  <?php
 	
 	$routes =array();
+	
 	$routes["test"] = "TestController/test";
 	$routes["test/do"] = "TestController/doSomething";
+	//public
+	$routes["Public"]="PublicController/index";
+	$routes["Public/feedback"] ="PublicController/feedback";
+	$routes["Public/contacts"] ="PublicController/contacts";
 	
-	$routes["base"] ="HomeController/index";
+	$routes["base"] ="PublicController/index";
 	$routes["logout"]="LogoutController/logout";
 	//colleges
 	

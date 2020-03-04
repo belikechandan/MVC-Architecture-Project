@@ -6,10 +6,12 @@
 	require("./Controllers/HomeController.php");
 	require("./Controllers/LogoutController.php");
 	require("./Controllers/LoginController.php");
+	require("./Controllers/PublicControllers.php");
 	require("./routes.php");
 	require("./lib/utility.php");
 
 	error_reporting(E_ERROR | E_WARNING | E_PARSE);
+	
 	class FrontController{
 		private const LOGIN_KEY ="LOGIN_KEY";
 		 
@@ -22,9 +24,8 @@
 				die();
 			}
 			
-			$loggedInUser = $this->loggedInUser();
-			
-			if(!$loggedInUser){
+			$isPublicRoute = $this->isPublicRoute($resourceRoute);
+			if(!$this->loggedInUser() && !$isPublicRoute){
 				$validUser=$this->authenticateRequest();
 				
 				if(!$validUser){
@@ -65,7 +66,14 @@
 			$ctrlObj =new $className();
 			$ctrlObj->{$methodName}();
 		}
+		
+		private function isPublicRoute($resourceRoute): bool {
+			$parts = explode("/",$resourceRoute);
+			$className= $parts[0];
+			return ($className === "PublicController"?true:false);
+		}
 	}
+	
 	$frontController = new FrontController();
 	$frontController -> processRoutes();
 	

@@ -21,31 +21,31 @@
 		 echo "creating college ".PHP_EOL;
 		require_once("./Model/College/collegeModel.php");
 		$this->collegemodel = new collegeModel();
-		$newName=$_GET["newName"];
-		$newAddress=$_GET["newAddress"];
+		$newName=$_POST["newName"];
+		$newAddress=$_POST["newAddress"];
 		$this->collegemodel -> create($newName,$newAddress);
 		redirect("/Colleges");
 	 }
 	    
 	public function updateform(){
-		$regNo = $_GET["whereRegNo"];
+		$regNo = $_POST["whereRegNo"];
 		$row = $this->collegemodel -> retriveWhere($regNo);
 		require("./Views/College/update_college_form.php");
 	}
 	
 	public function update(){
 		echo "updating college".PHP_EOL;
-		$newName=$_GET["newName"];
-		$newAddress=$_GET["newAddress"];
-		$whereRegNo=$_GET["whereRegNo"];
+		$newName=$_POST["newName"];
+		$newAddress=$_POST["newAddress"];
+		$whereRegNo=$_POST["whereRegNo"];
 		$this->collegemodel->update($newName , $newAddress,$whereRegNo);
 		redirect("/Colleges");
 	}
 	
 	public function delete(){
-		$regNo = $_GET["whereRegNo"];
+		$regNo = $_POST["whereRegNo"];
 		$this->collegemodel -> delete($regNo);
-		redirect("/Colleges");;
+		redirect("/Colleges");
 	}
  
  }

@@ -18,32 +18,32 @@
 	 }
 	 
 	 public function create(){
-		 echo "creating course ".PHP_EOL;
+		echo "creating course ".PHP_EOL;
 		require_once("./Model/Course/courseModel.php");
 		$this->coursemodel = new courseModel();
-		$newName=$_GET["newName"];
-		$newDuration=$_GET["newDuration"];
+		$newName=$_POST["newName"];
+		$newDuration=$_POST["newDuration"];
 		$this->coursemodel -> create($newName,$newDuration);
 		redirect("/Courses");
 	 }
 	    
 	public function updateform(){
-		$cNo = $_GET["whereCNo"];
+		$cNo = $_POST["whereCNo"];
 		$row = $this->coursemodel -> retriveWhere($cNo);
 		require("./Views/Course/update_course_form.php");
 	}
 	
 	public function update(){
 		echo "updating course".PHP_EOL;
-		$newName=$_GET["newName"];
-		$newDuration=$_GET["newDuration"];
-		$whereCNo=$_GET["whereCNo"];
+		$newName=$_POST["newName"];
+		$newDuration=$_POST["newDuration"];
+		$whereCNo=$_POST["whereCNo"];
 		$this->coursemodel->update($newName , $newDuration,$whereCNo);
 		redirect("/Courses");
 	}
 	
 	public function delete(){
-		$cNo = $_GET["whereCNo"];
+		$cNo = $_POST["whereCNo"];
 		$this->coursemodel -> delete($cNo);
 		redirect("/Courses");
 	}

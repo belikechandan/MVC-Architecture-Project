@@ -8,7 +8,12 @@
 	<table>
 		<h2 center> College List </h2>
 	<tr>
-	<td>Reg No. </td><td>name</td><td>address</td><td><a href="<?= baseUrl("/Colleges/createForm")?>"><button>Create College</button></a></td>
+	<td>Reg No. </td><td>name</td><td>address</td>
+	<td>
+		<form action="<?= baseUrl("/Colleges/createForm")?>" method="post">
+			<button>Create College</button></a>
+		</form>
+	</td>
 	</tr>
 	<?php
 	foreach ($rows as $row){
@@ -19,17 +24,25 @@
 		<td><?= $row["College_Name"]; ?> </td>
 		<td><?= $row["Address"]; ?></td>
 		<td>
-		 <a href="<?= baseUrl("/Colleges/updateForm")?>?whereRegNo=<?= $regNo ?> "> Update </a>
+			<form action="<?= baseUrl("/Colleges/updateForm")?>" method="post">
+				<input type="hidden" name= "whereRegNo" value="<?= $regNo ?>">
+				<button>Update</button>
+			</form>
 		</td>
 		<td>
-		 <a href="<?=baseUrl("/Colleges/Delete")?>?whereRegNo=<?= $regNo ?> "> Delete </a>
+			<form action="<?= baseUrl("/Colleges/Delete")?>" method="post">
+				<input type="hidden" name="whereRegNo" value="<?=$regNo ?>">
+				<button>Delete</button>
+			</form>
 		</td>
 	</tr>
 	<?php 
 	} 
 	?>
 	</table>
+
     </div>
+	
 </body>
 </html>
 

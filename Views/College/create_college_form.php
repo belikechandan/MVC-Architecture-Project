@@ -7,7 +7,7 @@
 	<div class="inner">
 
 	 <h2> Create A new College </h2>
-	<form action ="<?=baseUrl("/Colleges/create")?>">
+	<form action ="<?=baseUrl("/Colleges/create")?>" method="post">
  
 	<label>
 		Name 

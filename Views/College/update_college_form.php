@@ -6,8 +6,8 @@
 	<?php require("./Views/header.php");?>
 	<div class="inner">
 	<h2> Update College Form </h2>
-	<form action="<?=baseUrl("/Colleges/update")?>?whereRegNo=<?= $regNo ?> ">
-	 <input type="hidden" value =<?php echo $regNo?> name="whereRegNo">
+	<form action="<?=baseUrl("/Colleges/update")?>" method="post">
+	 <input type="hidden" value =<?= $regNo?> name="whereRegNo">
 	 
 	 <label>
 		Name 
