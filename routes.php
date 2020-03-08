@@ -1,7 +1,5 @@
  <?php
-	
 	$routes =array();
-	
 	$routes["test"] = "TestController/test";
 	$routes["test/do"] = "TestController/doSomething";
 	//public
